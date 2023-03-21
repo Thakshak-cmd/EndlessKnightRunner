@@ -1,8 +1,30 @@
- function animatePlayer(ctx, player) {
-    // Draw the player
-    ctx.fillStyle = player.fillStyle;
-    ctx.fillRect(player.x, player.y, player.width, player.height);
-    
-    // Update the player's animation
- 
+class Player{
+    constructor(){
+        this.sprite = {
+            run: new Image(),
+        }
+
+        this.sprite.run.src = "assets/_Run.png";
+
+        this.X = 0;
+        this.Y = 230;
+
+        this.storedTicks = 0;
+        this.animFrame = 0;
     }
+
+    draw(frame){
+        this.storedTicks += frame;
+
+        this.X += 0.1*frame;
+
+        if(this.storedTicks > 70){
+            this.storedTicks -= 70;
+            this.animFrame = (this.animFrame+1)%10;
+        }
+        ctx.drawImage(this.sprite.run, 40+this.animFrame*120, 42, 29, 38, this.X, this.Y, 29, 38);
+    }
+}
+
+
+
