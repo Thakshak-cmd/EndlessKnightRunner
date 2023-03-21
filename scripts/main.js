@@ -11,7 +11,7 @@ const player = {
 x: 100,
 y: 100,
 width: 32,
-height: 32,
+height: 85,
 fillStyle: "blue",
 frameIndex: 0,
 animationCounter: 0,
