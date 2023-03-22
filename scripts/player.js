@@ -25,7 +25,7 @@ class Player{
 
         if(this.storedTicks > 70){
             this.storedTicks -= 70;
-            this.animFrame = (this.animFrame+1)%10;
+            this.animFrame = (this.animFrame+1)%8;
         }
 
         // Draw the current animation frame
