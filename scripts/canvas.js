@@ -38,3 +38,15 @@ function scaleCanvas(){
 
 scaleCanvas();
 window.onresize = scaleCanvas;
+
+
+let pauseAnimation = false;
+window.onblur = function (event){
+    pauseAnimation = true;
+    //later put code to pause audio here also
+}
+
+window.onfocus = function (event){
+    pauseAnimation = false;
+    //later put code to resume audio here
+}
