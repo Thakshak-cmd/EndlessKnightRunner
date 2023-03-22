@@ -1,4 +1,5 @@
 let player = new Player();
+initControls(player)
 
 
 let lastTimeStamp = 0;
