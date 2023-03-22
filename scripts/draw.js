@@ -7,6 +7,13 @@ let frame = 0;
 
 function draw(timestamp=0){
     frame = timestamp - lastTimeStamp;
+
+    if(pauseAnimation){
+        lastTimeStamp = timestamp;
+        window.requestAnimationFrame(draw);
+        return;
+    }
+
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, 469, 279);    
 
