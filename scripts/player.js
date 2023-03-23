@@ -12,7 +12,7 @@ class Player{
         }
 
         this.X = 0;
-        this.Y = 0;
+        this.Y = 240;
 
         this.storedTicks = 0;
         this.animFrame = 1;
