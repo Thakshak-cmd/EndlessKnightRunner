@@ -2,6 +2,7 @@ class Player{
     constructor(){
         this.sprite = {
             run: [],
+            idle: [],
         }
 
         // Load each frame of animation into the sprite.run array
@@ -9,6 +10,12 @@ class Player{
             let frame = new Image();
             frame.src = "assets/run/run_" + i + ".png";
             this.sprite.run.push(frame);
+        }
+
+        for(let i = 1; i <= 10; i++){
+            let frame = new Image();
+            frame.src = "assets/idle/idle_" + i + ".png";
+            this.sprite.idle.push(frame);
         }
 
         this.X = 0;
@@ -20,10 +27,10 @@ class Player{
 
     move(frame){
         if(this.rightPressed && !this.leftPressed){
-            this.X += 0.1*frame
+            this.X += 0.125*frame
         }
         if(this.leftPressed && !this.rightPressed){
-            this.X -= 0.1*frame
+            this.X -= 0.125*frame
         }
     }
 
