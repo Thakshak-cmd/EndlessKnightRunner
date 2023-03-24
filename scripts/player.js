@@ -5,6 +5,8 @@ class Player{
             idle: [],
         }
 
+        this.idle = true; // set initial idle state to true
+
         // Load each frame of animation into the sprite.run array
         for(let i = 1; i <= 10; i++){
             let frame = new Image();
@@ -36,33 +38,44 @@ class Player{
 
     draw(frame){
         this.storedTicks += frame;
-
         this.move(frame);
-
-        if(this.storedTicks > 80){
-            this.storedTicks -= 70;
-            this.animFrame = (this.animFrame+1)%8;
+    
+        if(this.idle){
+            if(this.storedTicks > 80){
+                this.storedTicks -= 70;
+                this.animFrame = (this.animFrame+1)%6;
+            }
+            ctx.drawImage(this.sprite.idle[this.animFrame], this.X, this.Y);
+        } else {
+            if(this.storedTicks > 80){
+                this.storedTicks -= 70;
+                this.animFrame = (this.animFrame+1)%8;
+            }
+            ctx.drawImage(this.sprite.run[this.animFrame], this.X, this.Y);
         }
-
-        // Draw the current animation frame
-        ctx.drawImage(this.sprite.run[this.animFrame], this.X, this.Y);
     }
+    
 
     pressLeft(){
         this.leftPressed = true;
+        this.idle = false; // player is no longer idle
     }
-
+    
     releaseLeft(){
         this.leftPressed = false;
+        this.idle = true; // player is now idle
     }
-
+    
     pressRight(){
         this.rightPressed = true;
+        this.idle = false; 
     }
-
+    
     releaseRight(){
         this.rightPressed = false;
+        this.idle = true; 
     }
+    
 
     pressUp(){
         this.upPressed = true;
