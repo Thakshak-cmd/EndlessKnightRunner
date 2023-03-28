@@ -34,7 +34,14 @@ class Player{
         if(this.leftPressed && !this.rightPressed){
             this.X -= 0.125*frame
         }
+        // Only set to idle state if no arrow keys are pressed
+        if(!this.rightPressed && !this.leftPressed) {
+            this.idle = true;
+        } else {
+            this.idle = false;
+        }
     }
+    
 
     draw(frame){
         this.storedTicks += frame;
